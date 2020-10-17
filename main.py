@@ -1,0 +1,27 @@
+from common.webdriver_factory import create_driver_instance
+from page_objects.home_page import HomePage
+
+# driver = create_driver_instance('chrome')
+# page = HomePage(driver, 20)
+# page.open()
+# page.wait_until_loaded()
+# page.click_logo()
+# # page.learn_more()
+# # driver.back()
+# page.search_for_a_job()
+# driver.back()
+# page.find_a_person()
+# driver.back()
+# page.learn_new_skills()
+# # driver.quit()
+
+driver = create_driver_instance('chrome')
+home = HomePage(driver)
+home.open()
+home.wait_until_loaded()
+home.click_logo()
+home.wait_until_loaded()
+job_page = home.search_for_a_job()
+job_page.wait_until_loaded()
+job_page.search('Software Engineer', 'Zapopan, Jalisco')
+# driver.quit()
